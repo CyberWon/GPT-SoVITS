@@ -1,5 +1,6 @@
 # modified from https://github.com/feng-yufei/shared_debugging_code/blob/main/model/t2s_model.py
 import torch
+import sys
 from tqdm import tqdm
 
 from AR.models.utils import make_pad_mask
@@ -264,7 +265,7 @@ class Text2SemanticDecoder(nn.Module):
         x_len = x.shape[1]
         x_attn_mask = torch.zeros((x_len, x_len), dtype=torch.bool)
         stop = False
-        for _ in tqdm(range(1500)):
+        for _ in tqdm(range(1500),file=sys.stdout):
             y_emb = self.ar_audio_embedding(y)
             y_pos = self.ar_audio_position(y_emb)
             # x 和逐渐增长的 y 一起输入给模型
