@@ -125,9 +125,55 @@
 
 2-修复中文文本前端bug https://github.com/RVC-Boss/GPT-SoVITS/issues/475
 
+### 20240221更新
+
+1-数据处理添加语音降噪选项（降噪为只剩16k采样率，除非底噪很大先不急着用哦。）
+
+2-中文日文前端处理优化 https://github.com/RVC-Boss/GPT-SoVITS/pull/559 https://github.com/RVC-Boss/GPT-SoVITS/pull/556 https://github.com/RVC-Boss/GPT-SoVITS/pull/532 https://github.com/RVC-Boss/GPT-SoVITS/pull/507 https://github.com/RVC-Boss/GPT-SoVITS/pull/509
+
+3-mac CPU推理更快因此把推理设备从mps改到CPU
+
+4-colab修复不开启公网url
+
+### 20240306更新
+
+1-推理加速50%（RTX3090+pytorch2.2.1+cu11.8+win10+py39 tested）https://github.com/RVC-Boss/GPT-SoVITS/pull/672
+
+2-如果用faster whisper非中文ASR不再需要先下中文funasr模型
+
+3-修复uvr5去混响模型 是否混响 反的 https://github.com/RVC-Boss/GPT-SoVITS/pull/610
+
+4-faster whisper如果无cuda可用自动cpu推理 https://github.com/RVC-Boss/GPT-SoVITS/pull/675
+
+5-修改is_half的判断使在Mac上能正常CPU推理 https://github.com/RVC-Boss/GPT-SoVITS/pull/573
+
+### 202403/202404/202405更新
+
+2个重点
+
+1-修复sovits训练未冻结vq的问题（可能造成效果下降）
+
+2-增加一个快速推理分支
+
+以下都是小修补
+
+1-修复无参考文本模式问题
+
+2-优化中英文文本前端
+	
+3-api格式优化
+	
+4-cmd格式问题修复
+
+5-训练数据处理阶段不支持的语言提示报错
+
+6-nan自动转fp32阶段的hubert提取bug修复
+
 todolist：
 
-1-中文多音字推理优化
+1-中文多音字推理优化(有没有人来测试的，欢迎把测试结果写在pr评论区里) https://github.com/RVC-Boss/GPT-SoVITS/pull/488
+（v2底模训练已经合了，下个版本发布就要合了）
 
+2-正在尝试解决低音质参考音频导致音质较差的问题，v2再试试如果能解决就发了，节点暂定高考后吧
 
 
